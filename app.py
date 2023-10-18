@@ -33,7 +33,7 @@ st.write("calculating the waterheight in mm")
 st.latex(dndi_latex)
 Dndi=dndi_value
 dhw_latex,dhw_value=water_above_roof(Dndi)
-st.write("calculating the total height in m")
+st.write("calculating the total height in mm")
 st.latex(dhw_latex)
 
 hcrit=height_above_roof+height_of_overload-30
