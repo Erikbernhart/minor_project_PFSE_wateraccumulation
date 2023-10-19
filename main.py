@@ -2,14 +2,14 @@ from handcalcs.decorator import handcalc
 import forallpeople as si
 
 @handcalc()
-def debit(area: float, n: float, ir=float) -> float:
+def debit(area: float, n: float, I_r=float) -> float:
     """
-    calculates the debit of rainwater with the constant ir:5*10-5 from NEN1991-1-1-3 table NB 1
+    calculates the debit of rainwater with the constant I_r:5*10-5 from NEN1991-1-1-3 table NB 1
     area is in m^2, and n is the number of overloads per area.
 
     """
-    ir=0.00005
-    Q_hi = (area * ir) / n
+    I_r=0.00005
+    Q_hi = (area * I_r) / n
     return Q_hi
 
 
@@ -24,8 +24,8 @@ def waterheight(width_overload: float, Q_hi: float) -> float:
 
 @handcalc()
 def water_above_roof(D_ndi: float) -> float:
-    dhw = D_ndi + 30
-    return dhw
+    d_hw = D_ndi + 30
+    return d_hw
 
 @handcalc()
 def critical_height(height_of_overload:float) -> float:
