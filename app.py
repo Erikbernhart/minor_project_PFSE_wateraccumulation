@@ -25,34 +25,34 @@ height_value = st.sidebar.number_input("height of overflow in (mm) ",20)
 
 width_overload=width_value
 height_above_roof=height_A_value
-Qhi=debit_value
+Q_hi=debit_value
 height_of_overload=height_value
 
-dndi_latex, dndi_value= waterheight(width_overload,Qhi)
+D_ndi_latex, D_ndi_value= waterheight(width_overload,Q_hi)
 st.write("calculating the waterheight in mm")
-st.latex(dndi_latex)
-Dndi=dndi_value
-dhw_latex,dhw_value=water_above_roof(Dndi)
+st.latex(D_ndi_latex)
+D_ndi=D_ndi_value
+d_hw_latex,d_hw_value=water_above_roof(D_ndi)
 st.write("calculating the total height in mm")
-st.latex(dhw_latex)
+st.latex(d_hw_latex)
 
 hcrit=height_above_roof+height_of_overload-30
 
 
 ho=height_value
-hnd=height_A_value
-dhw=Dndi+hnd
+h_nd=height_A_value
+d_hw=D_ndi+h_nd
 import plotly.graph_objects as go
 fig=go.Figure()
-fig.add_trace(go.Scatter(x=[0,70,70,100,100,0], y=[0,0,hnd,hnd,dhw,dhw], fill="toself",fillcolor="lightblue", line=dict(color="lightblue"),showlegend=False))
-fig.add_trace(go.Scatter(x=[0,100,100,70,70,0,0,None,70,100,100,70,70], y=[-30,-30,hnd,hnd,0,0,-30,None,hnd+ho,hnd+ho,hnd+ho+ho,hnd+ho+ho,hnd+ho], fill="toself",fillcolor="grey", line=dict(color="black"),showlegend=False))
+fig.add_trace(go.Scatter(x=[0,70,70,100,100,0], y=[0,0,h_nd,h_nd,d_hw,d_hw], fill="toself",fillcolor="lightblue", line=dict(color="lightblue"),showlegend=False))
+fig.add_trace(go.Scatter(x=[0,100,100,70,70,0,0,None,70,100,100,70,70], y=[-30,-30,h_nd,h_nd,0,0,-30,None,h_nd+ho,h_nd+ho,h_nd+ho+ho,h_nd+ho+ho,h_nd+ho], fill="toself",fillcolor="grey", line=dict(color="black"),showlegend=False))
 fig.add_trace(go.Scatter(x=[0,100,], y=[hcrit,hcrit],mode="lines", line=dict(color="black", dash="dash"),showlegend=False))
-x1, y1 = 70, 30 + hnd
-x2, y2 = 100, 30 + hnd
+x1, y1 = 70, 30 + h_nd
+x2, y2 = 100, 30 + h_nd
 
 
-x_point, y_point = 65, hnd+3
-label_text = f"<span style='color:black; font-weight:bold;'>hnd = {hnd}mm</span>"
+x_point, y_point = 65, h_nd+3
+label_text = f"<span style='color:black; font-weight:bold;'>h_nd = {h_nd}mm</span>"
 
 # Add an annotation for the point
 fig.add_annotation(
@@ -64,7 +64,7 @@ fig.add_annotation(
     
 )
 x_point, y_point = 30, hcrit+3
-if hcrit>dhw_value:
+if hcrit>d_hw_value:
     label_text2 =f" <span style='color:black; font-weight:bold;'>hcrit =maximum available waterheight  {hcrit}mm</span>"
 else:
     label_text2 = f"<span style='color:red; font-weight:bold;'>maximum water height exceeded!! make overflow wider or higher</span>"
@@ -77,8 +77,8 @@ fig.add_annotation(
     showarrow=False,  # Display an arrow pointing to the annotation
     arrowhead=1,  # Specify the arrowhead style
 )
-x_point, y_point = 65, round(dhw,0)+3
-label_text1 = f"<span style='color:black; font-weight:bold;'>dhw = {round(dhw,0)}mm</span>"
+x_point, y_point = 65, round(d_hw,0)+3
+label_text1 = f"<span style='color:black; font-weight:bold;'>d_hw = {round(d_hw,0)}mm</span>"
 
 # Add an annotation for the point
 fig.add_annotation(

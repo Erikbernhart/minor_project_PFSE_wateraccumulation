@@ -9,22 +9,22 @@ def debit(area: float, n: float, ir=float) -> float:
 
     """
     ir=0.00005
-    Qhi = (area * ir) / n
-    return Qhi
+    Q_hi = (area * ir) / n
+    return Q_hi
 
 
 @handcalc()
-def waterheight(width_overload: float, Qhi: float) -> float:
+def waterheight(width_overload: float, Q_hi: float) -> float:
     """
     calculates the waterheight above the overload 
     with the debit and overload width in mm.
     """
-    Dndi=0.7 * ((Qhi / (width_overload/1000)) ** (2/3))*10**3
-    return Dndi
+    D_ndi=0.7 * ((Q_hi / (width_overload/1000)) ** (2/3))*10**3
+    return D_ndi
 
 @handcalc()
-def water_above_roof(Dndi: float) -> float:
-    dhw = Dndi + 30
+def water_above_roof(D_ndi: float) -> float:
+    dhw = D_ndi + 30
     return dhw
 
 @handcalc()
