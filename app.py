@@ -24,7 +24,7 @@ width_value = st.sidebar.number_input("width of overflow (mm)",200)
 height_value = st.sidebar.number_input("height of overflow in (mm) ",20)
 
 width_overload=width_value
-height_above_roof=height_A_value
+h_nd=height_A_value
 Q_hi=debit_value
 height_of_overload=height_value
 
@@ -36,7 +36,7 @@ d_hw_latex,d_hw_value=water_above_roof(D_ndi,h_nd)
 st.write("calculating the total height in mm")
 st.latex(d_hw_latex)
 
-hcrit=height_above_roof+height_of_overload-30
+hcrit=h_nd+height_of_overload-30
 
 
 ho=height_value
