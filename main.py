@@ -23,8 +23,8 @@ def waterheight(width_overload: float, Q_hi: float) -> float:
     return D_ndi
 
 @handcalc()
-def water_above_roof(D_ndi: float) -> float:
-    d_hw = D_ndi + 30
+def water_above_roof(D_ndi: float;H_nd:float) -> float:
+    d_hw = D_ndi + H_nd
     return d_hw
 
 @handcalc()
