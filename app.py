@@ -32,7 +32,7 @@ D_ndi_latex, D_ndi_value= waterheight(width_overload,Q_hi)
 st.write("calculating the waterheight in mm")
 st.latex(D_ndi_latex)
 D_ndi=D_ndi_value
-d_hw_latex,d_hw_value=water_above_roof(D_ndi)
+d_hw_latex,d_hw_value=water_above_roof(D_ndi,h_nd)
 st.write("calculating the total height in mm")
 st.latex(d_hw_latex)
 
