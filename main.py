@@ -28,6 +28,6 @@ def water_above_roof(D_ndi: float,h_nd:float) -> float:
     return d_hw
 
 @handcalc()
-def critical_height(height_above_roof:float,height_of_overload:float) -> float:
+def critical_height(h_nd:float,height_of_overload:float) -> float:
     Hcrit = height_above_roof+height_of_overload - 30
     return Hcrit
